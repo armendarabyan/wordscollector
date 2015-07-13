@@ -1,0 +1,10 @@
+require 'active_record'
+require 'sqlite3'
+require 'logger'
+
+ActiveRecord::Base.logger = Logger.new('debug.log')
+configuration = YAML::load(IO.read('activerecord/config/database.yml'))
+ActiveRecord::Base.establish_connection(configuration['development'])
+
+class Words < ActiveRecord::Base
+end
