@@ -11,8 +11,8 @@ class Application
 
     new_symbols = reader.read('sub.srt')
 
-
     filtered_symbols = filter.filter new_symbols
+    filtered_symbols.uniq!
 
     filtered_symbols.each do |word_from_db|
       print word_from_db + " (y/n)?"
