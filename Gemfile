@@ -3,4 +3,6 @@ source "https://rubygems.org"
 
 # gem "rails"
 gem 'highline'
-gem 'google-api-client'
+gem 'activerecord'
+gem 'sqlite3'
+gem 'linguistics'

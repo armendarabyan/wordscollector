@@ -5,7 +5,7 @@ class FilterWords
     a = []
     words.each do |word|
       if not exist?(word)
-        a.push(word)
+        a.push(word.downcase)
       end
     end
 
@@ -13,19 +13,23 @@ class FilterWords
   end
 
   def exist?(word)
-    Words.exists?(name: word)
+    Words.exists?(name: word.downcase)
   end
 
   def yes(word)
-    Words.create(name:word, status: 1)
+    Words.create(name:word.downcase, status: 1)
   end
 
   def no(word)
-    Words.create(name:word, status: 0)
+    Words.create(name:word.downcase, status: 0)
   end
 
   def showno
-    Words.where(status: 0);
+    Words.where(status: 0)
   end
-  
+
+  def showyes
+    Words.where(status: 1)
+  end
+
 end
