@@ -2,9 +2,11 @@ require "highline/import"
 require "./activerecord/words"
 require "./app/filereader"
 require "./app/filterwords"
+require "./app/inputhelper"
 
 
 class Application
+  include InputHelper
   def start
     reader = FileReader.new
     filter = FilterWords.new
@@ -17,7 +19,7 @@ class Application
     filtered_symbols.each do |word_from_db|
       print word_from_db + " (y/n)?"
 
-      str = get_single_char
+      str = getchar
 
       #str = 'q'
       if str == 'x'
@@ -39,14 +41,7 @@ class Application
   end
 
   def get_single_char
-    tty_param = `stty -g`
-    system 'stty raw -echo'
 
-    str = IO.read '/dev/stdin', 1
-
-    system "stty #{tty_param}"
-    print " " + str + "\n"
-    return str
   end
 end
 

@@ -27,4 +27,5 @@ class FilterWords
   def showno
     Words.where(status: 0);
   end
+  
 end
