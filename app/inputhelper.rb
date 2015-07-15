@@ -10,6 +10,11 @@ module InputHelper
     return str
   end
 
+  def getstring
+    f = gets.chomp
+    return f
+  end
+
   def printstring(str)
   end
 end

@@ -1,5 +1,8 @@
 require "./app/filterwords"
 require "linguistics"
+
+Linguistics.use( :en )
+puts "running".en.present_participle
 #
 # class Game
 #   def start
