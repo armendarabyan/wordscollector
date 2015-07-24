@@ -16,6 +16,10 @@ class FilterWords
     Words.exists?(name: word.downcase)
   end
 
+  def exist_in_unknown?(word)
+    Words.exists?(name: word.downcase, status:1)
+  end
+
   def yes(word)
     Words.create(name:word.downcase, status: 1)
   end

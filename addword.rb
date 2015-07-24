@@ -9,9 +9,9 @@ class Addwords
     str = getstring
 
     filter = FilterWords.new
-    if !filter.exist?(str)
-      filter.no(str)
+    if !filter.exist_in_unknown?(str)
       puts "translation - " + translator.translate(str)
+      Words.create(name:str.downcase, status: 0)
     end
   end
 end
